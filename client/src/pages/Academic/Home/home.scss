@@ -1,0 +1,114 @@
+.fields-area{
+    padding: 52px 80px;
+    background-color: #fafafb;
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            font-size: 34px;
+            font-weight: 500;
+            color: #131313;
+        }
+        a{
+            font-size: 14px;
+            font-weight: 500;
+            color: #131313;
+            background-color: #EFEFF0;
+            width: 122px;
+            height: 44px;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 24px;
+    }
+}
+
+.partners{
+    padding: 52px 80px;
+    background-color: #fafafb;
+    &__top{
+        text-align: center;
+        width: 570px;
+        margin: 0 auto 24px;
+        h1{
+            font-size: 34px;
+            font-weight: 500;
+            color: rgba(19, 19, 19, 1);
+        }
+        p{
+            font-size: 14px;
+            margin-top: 12px;
+            font-weight: 400;
+            color: rgba(27, 28, 29, 1);
+        }
+    }
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        &__item{
+            width: calc(100%/5 - 16px);
+            height: 88px;
+            padding: 24px 32px;
+            background-color: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(239, 239, 240, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 64px;
+                filter: grayscale(1);
+                transition: .3s;
+            }
+            &:hover{
+                img{
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .fields-area, .partners, .why{
+        padding: 52px 16px;
+    }
+    .fields-area {
+        &__top{
+            h1{
+                font-size: 24px;
+            }
+        }
+    }
+    .partners{
+        &__top{
+            width: auto;
+            h1{
+                font-size: 24px;
+            }
+        }
+        &__list{
+            width: 100%;
+            padding-bottom: 12px;
+            gap: 16px;
+            &__item{
+                width: calc(100%/2 - 16px);
+            }
+        }
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1200px){
+    .fields-area, .partners, .why{
+        padding: 52px 32px;
+    }
+}

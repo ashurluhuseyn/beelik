@@ -1,0 +1,80 @@
+.loader{
+  height: 100vh;
+  position: relative;
+}
+
+.spinner-loader {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.spinner-loader .circle {
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-top: 8px solid #ffd400; /* Yellow from logo */
+  border-right: 8px solid #131313; /* Dark blue from logo */
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite; /* Smooth rotation */
+}
+
+/* Inner circle */
+.spinner-loader .circle-inner {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  border: 6px solid #ffd400; /* Yellow border */
+  border-right-color: #131313; /* Alternate dark blue */
+  border-radius: 50%;
+  animation: spin-reverse 1.5s linear infinite; /* Counter-spin animation */
+}
+
+/* Brand name */
+.spinner-loader .brand-name {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #131313; /* Dark blue from logo */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fade-in 2s ease-in-out infinite; /* Subtle fade animation */
+}
+
+/* Outer circle spin */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inner circle reverse spin */
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Brand name fade-in animation */
+@keyframes fade-in {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}

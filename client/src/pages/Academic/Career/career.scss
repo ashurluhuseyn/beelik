@@ -1,0 +1,258 @@
+.vacancy-details-page{
+    background-color: #FAFAFB;
+    .vacancy{
+        padding: 52px 80px;
+        .breadcrumb{
+            ul{
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                li{
+                    height: 18px;
+                    display: flex;
+                    align-items: center;
+                    a{
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #6C6D70;
+                    }
+                    img{
+                        filter: opacity(.5);
+                    }
+                }
+            }
+        }
+        &__wrap{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            &__details{
+                display: flex;
+                flex-direction: column;
+                width: 57%;
+                gap: 4px;
+                &__title{
+                    height: 102px;
+                    background-color: #fff;
+                    padding: 16px;
+                    border-radius: 16px 16px 0 0;
+                    span{
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #6C6D70;
+                        .deadline{
+                            color: #1B1C1D;
+                        }
+                    }
+                    h1{
+                        font-size: 34px;
+                        font-weight: 600;
+                        color: #131313;
+                        margin-top: 8px;
+                    }
+                }
+                &__desc{
+                    background-color: #fff;
+                    padding: 16px;
+                    h2{
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #131313;
+                    }
+                    p{
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                        letter-spacing: 0.0025em;
+                        color: #464749;
+                        margin-top: 8px;
+                    }
+                }
+                &__reqs{
+                    background-color: #fff;
+                    padding: 16px;
+                    h2{
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #131313;
+                    }
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        margin-top: 8px;
+                        li{
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #464749;
+                            position: relative;
+                            padding-left: 24px;
+                            &::before{
+                                content: url('../../../assets/images/job-check.svg');
+                                position: absolute;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+                &__form{
+                width: calc((523/1287) * 100%);
+                height: 452px;
+                position: relative;
+                background-image: url('../../../assets/images/beelik-bg-banner.png');
+                padding: 24px;
+                border-radius: 16px;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(92.71deg, #17194C -17.9%, #363BB2 117.99%);
+                    mix-blend-mode: multiply; 
+                    border-radius: 16px;
+                    z-index: 0;
+                }
+                > * {
+                    position: relative; 
+                    z-index: 1;
+                }
+                h1{
+                    font-size: 34px;
+                    font-weight: 500;
+                    color: #FFFFFF;
+                }
+                
+                .form-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    margin-top: 32px;
+                        label{
+                            font-size: 12px;
+                            font-weight: 400;
+                            color: #FFFFFF;
+                        }
+                        input{
+                            height: 48px;
+                            border-radius: 8px;
+                            padding: 12px 10px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            border: 1px solid rgba(255, 255, 255, 0.32);
+                            background-color: rgba(255, 255, 255, 0.17);
+                            padding: 12px;
+                            color: #fff;
+                        }
+                        .cv-container {
+                            position: relative;
+                            width: 100%;
+                            margin-top: 8px;
+                            cursor: pointer;
+                        }
+                        
+                        .custom-cv-upload {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            background-color: #17194C;
+                            backdrop-filter: blur(12px);
+                            color: #FFFFFF;
+                            font-size: 14px;
+                            font-weight: 400;
+                            padding: 12px 10px;
+                            border: 1px dashed #7A7DD8;
+                            border-radius: 8px;
+                            transition: background-color 0.3s ease, color 0.3s ease;
+                            width: 100%;
+                            height: 48px;
+                        }
+                        
+                        .cv-upload-input {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            cursor: pointer;
+                        }
+                        
+                }
+                .form-button{
+                    margin-top: 32px;
+                    button{
+                        width: 100%;
+                        height: 48px;
+                        font-size: 16px;
+                        font-weight: 600;
+                        border-radius: 8px;
+                        color: #1B1C1D;
+                        background-color: #FFD400;
+                    }
+                }
+            }
+            &__image{
+                width: calc((740 / 1280) * 100%);
+                background-color: #EFEFF0;
+                height: 494px;
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 343px;
+                    height: 343px;
+                    object-fit: cover;
+                }
+            }
+            }
+        .other-vacancies{
+            padding: 52px 0;
+            h2{
+                font-size: 34px;
+                font-weight: 600;
+                color: #131313;
+            }
+            &__list{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                row-gap: 16px;
+                margin-top: 24px;
+                .vacancy-card {
+                    width: calc(100% / 3 - 16px);
+                }
+            }
+        }
+        }
+}
+
+@media screen and (max-width:576px) {
+    .vacancy {
+        padding: 24px 16px !important;
+        &__wrap{
+            flex-direction: column;
+            gap: 16px;
+            &__details{
+                width: 100% !important;
+                &__title{
+                    height: auto !important;
+                    h1{
+                        font-size: 24px !important;
+                    }
+                }
+            }
+            &__form{
+                width: 100% !important;
+            }
+        }
+        .other-vacancies {
+            .vacancy-card {
+                width: 100% !important;
+            }
+        }
+    }
+}

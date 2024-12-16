@@ -1,0 +1,40 @@
+.cv-modal{
+        width: 100%;
+        height: 100%;
+        background-color: #00000083;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .modal-content{
+            background-color: #fff;
+            position: absolute;
+            top: 10%;
+            left: 60%;
+            transform: translateX(-60%);
+            width: 990px;
+            height: 300px;
+            border-radius: 12px;
+            .modal-header{
+                height: 72px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 15px;
+                h1{
+                    font-size: 20px;
+                    font-weight: 400;
+                }
+                svg{
+                    cursor: pointer;
+                }
+            }
+        }
+}
+
+.cv-modal {
+    display: none;
+}
+  
+  .cv-modal.active {
+    display: block;
+}
