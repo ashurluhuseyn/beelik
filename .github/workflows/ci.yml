@@ -1,0 +1,72 @@
+name: beerlik
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PK }}
+
+      - name: Add server to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Build and deploy React app to server
+        run: |
+          export CI=false
+          echo "REACT_APP_BASE_URL=${{ vars.REACT_APP_BASE_URL }}" >> client/.env
+          echo "REACT_APP_IMAGE_URL=${{ vars.REACT_APP_IMAGE_URL }}" >> client/.env
+          cd client
+          npm install
+          npm run build
+          echo "${{ secrets.SSH_PK }}" > private_key
+          chmod 600 private_key
+          scp -i private_key -r build/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/beelik/client/
+          ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "sudo chown -R www-data:www-data /var/www/beelik/client"
+          ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "sudo systemctl restart nginx"
+          rm private_key
+
+      - name: Deploy Express app to server
+        run: |
+          export CI=false
+          cd server
+          
+          echo "module.exports = {
+            apps: [{
+              name: 'express-app',
+              script: 'server.js',
+              env: {
+                DATABASE_URL: '${{ secrets.DATABASE_URL }}',
+                JWT_SECRET: '${{ secrets.JWT_SECRET }}',
+                PORT: '${{ secrets.PORT }}'
+              }
+            }]
+          };" > ecosystem.config.js
+          
+          echo "${{ secrets.SSH_PK }}" > private_key
+          chmod 600 private_key
+          scp -i private_key -r * ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/beelik/server/
+          scp -i private_key ecosystem.config.js ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/beelik/server/
+          
+          ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "ls -l /var/www/beelik/server"          
+          ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            cd /var/www/beelik/server &&
+            npm install &&
+            pm2 list | grep 'express-app' && \
+            pm2 stop 'express-app' && \
+            pm2 delete 'express-app' || echo 'No running process found, skipping stop/delete' && \
+            pm2 start ecosystem.config.js --update-env
+          "
+          rm private_key
