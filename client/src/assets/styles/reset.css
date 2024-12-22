@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f1f5f7;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+input,select, textarea {
+    outline: none;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+p,span,a, input,select,textarea{
+    font-family: "Inter" !important;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Space Grotesk";
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter_28pt-Thin.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter_28pt-Light.ttf');
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: "Inter";
+    src: url('../fonts/Inter_28pt-Medium.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url('../fonts/SpaceGrotesk-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url('../fonts/SpaceGrotesk-Light.ttf');
+    font-weight: 300;
+}
+
+
+table th, tr{
+    text-align: center;
+    vertical-align: middle;
+}
+
+table td{
+    font-weight: 300;
+}
+
+table img{
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+
+.admin-header {
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1) !important;
+    height: 70px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 40px;
+}
+
+.admin-header svg{
+    font-size: 30px;
+}
+
+.admin-header span{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+h1,h2,h3,h4,h5,h6,p{
+    margin-bottom: 0 !important;
+}
+
+table .role-dp{
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #F1F1F4;
+    border-radius: .75rem;
+    box-shadow: 0px 7px 18px 0px rgba(0, 0, 0, .09);
+    margin-top: 10px;
+    width: 150px;
+    transform: scale(0);
+    transition: .5s;
+}
+
+.role-dp li{
+    font-size: 12px;
+    font-weight: 300;
+    color: #151515;
+    padding: 10px 15px !important;
+    border-bottom: 1px solid #f1f5f7;
+    transition: .5s;
+}
+
+.role-dp li:hover {
+    background-color: #f1f5f7;
+    
+}
+
+.role-active{
+    transform: scale(1) !important;
+}
+
+.corporate-bg {
+    background-color: #0F103F;
+    background-image: url(../images/cor-bg.png);
+    background-size: cover;
+}
+
+.academic-bg{
+    background-color: #F1F5F7;
+}
+
+.alert-message {
+    width: 25%;
+}
+
+
+@media screen  and (max-width:768px){
+    .corporate-bg {
+        background-position: left;
+        background-size: auto !important;
+    }
+    .alert-message{
+        width: 80% !important;
+        margin: auto;
+    }
+}
+
+
+.dark-mode{
+    background-color: #000;
+    color: #fff;
+}

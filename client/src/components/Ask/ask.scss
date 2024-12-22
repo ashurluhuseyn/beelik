@@ -1,0 +1,89 @@
+.ask {
+  padding: 52px 80px;
+  background-color: #fafafb;
+  &__form {
+    position: relative;
+    background-image: url("../../assets/images/beelik-bg-banner.png");
+    background-size: cover;
+    padding: 32px 24px;
+    border-radius: 16px;
+    &::before {
+      border-radius: 16px;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(92.71deg, #17194c -17.9%, #363bb2 117.99%);
+      mix-blend-mode: multiply;
+      z-index: 0;
+    }
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 34px;
+      font-weight: 500;
+      text-align: center;
+      margin: 0 auto;
+      width: 848px;
+      color: #fff;
+    }
+    form {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      input,
+      button {
+        width: calc(100% / 4 - 16px);
+        border-radius: 8px;
+        height: 48px;
+      }
+      input {
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        background-color: rgba(255, 255, 255, 0.17);
+        padding: 12px;
+      }
+      button {
+        background-color: rgba(255, 212, 0, 1);
+        color: #131313;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.dark-ask {
+  background-color: #131313;
+}
+
+@media screen and (max-width: 576px) {
+  .ask {
+    padding: 24px 16px;
+    &__form {
+      padding: 32px 16px !important;
+      h1 {
+        font-size: 24px;
+        width: auto;
+      }
+      form {
+        flex-direction: column;
+        gap: 16px;
+        input,
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .ask {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}

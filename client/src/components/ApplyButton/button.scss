@@ -1,0 +1,43 @@
+.apply-btn{
+    width: 174px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 12px 24px;
+    background-color: #008ADF;
+    color: #fff;
+    border: 1px solid #008ADF;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: -webkit-linear-gradient(45deg, #fff 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #fff 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    img{
+        filter: brightness(0) invert(1);
+        margin-left: 8px;
+        -webkit-transition: filter 300ms ease-in-out;
+        transition: filter 300ms ease-in-out;
+    }
+    &:hover{
+        background-position: 0;
+        color: #008ADF;
+        img{
+            filter: none ;
+        }
+    }
+   
+}
+
+
+@media screen and (max-width:768px) {
+    .apply-btn{
+        font-size: 14px;
+    }
+}

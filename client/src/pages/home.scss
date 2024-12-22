@@ -1,0 +1,178 @@
+.similar-blogs{
+    margin-top: 148px;
+    &__title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2{
+            font-size: 40px;
+            font-weight: 500;
+            color: #151515;
+        }
+        a{
+            color: #008ADF;
+            font-size: 20px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            img{
+                margin-left: 16px;
+            }
+        }
+    }
+    &__list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 48px;
+        row-gap: 40px;
+    }
+}
+
+.calling{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-color: #008ADF;
+    border-radius: 50%;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    z-index: 99999999999;
+    &:hover{
+        animation: call 0.5s linear infinite;
+    }
+}
+
+.choose{
+    margin-top: 120px;
+    height: 726px;
+    .choose-wrap{
+        height: 100%;
+        border-radius: 32px;
+        background-color: #F9FAFA;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        position: relative;
+        .choose-img{
+            img{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                &:nth-child(2){
+                    width: 431px;
+                    height: 431px;
+                    border-radius: 50%;
+                    left: 5%;
+                }
+            }
+        }
+        .choose-content{
+            width: 580px;
+            height: 312px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            h1{
+                font-size: 32px;
+                font-weight: 600;
+                color: #1E1E1E;
+            }
+            p{
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 20.8px;
+                color: #686868;
+            }
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+                li{
+                    width: 278px;
+                    height: 64px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #fff;
+                    padding: 12px 24px;
+                    border-radius: 8px;
+                    span{
+                        font-size: 20px;
+                        font-weight: 300;
+                        color: #151515;
+                        margin-left: 24px;
+                    }
+                    &:nth-child(2) {
+                        img{
+                            filter: hue-rotate(180deg);
+                        }
+                    }
+                    &:nth-child(3) {
+                        img{
+                            filter: hue-rotate(240deg);
+                        }
+                    }
+                    &:nth-child(4) {
+                        img{
+                            filter: hue-rotate(120deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.fields-home{
+    margin-top: 120px;
+    .fields__list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 40px;
+        margin-top: 48px;
+    }
+}
+
+
+
+@media screen and (max-width:768px) {
+    .similar-blogs{
+        margin-top: 48px;
+        &__title{
+            h2{
+                font-size: 32px;
+            }
+            a{
+                font-size: 16px;
+            }
+        }
+        &__list{
+            margin-top: 32px;
+        }
+    }
+    .choose{
+        height: auto;
+        margin-top: 32px;
+        .choose-wrap{
+            align-items: normal;
+            padding: 40px 12px;
+            .choose-img{
+                display: none;
+            }
+            .choose-content{
+                height: auto;
+                .choose-content-items{
+                    li{
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+}

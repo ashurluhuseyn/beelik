@@ -1,0 +1,109 @@
+.advantages{
+    margin-bottom: 52px;
+    &__wrap{
+        padding: 0 80px;
+        height: 308px;
+        background-image: url(../../assets/images/adv-bg.svg);
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1b1c1d7b;
+            mix-blend-mode: hue; 
+            z-index: -1;
+        }
+        > * {
+            position: relative; 
+            z-index: 1;
+        }
+        &__text{
+            width: 32%;
+            h1{
+                color: #FFFFFF;
+                font-size: 34px;
+                font-weight: 600;
+            }
+            p{
+                font-size: 14px;
+                font-weight: 400;
+                color: #FFFFFF;
+                margin-top: 12px;
+            }
+        }   
+        &__list{
+            width: 63%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+    }
+}
+
+.advantage-card{
+    width: calc(100%/2 - 4px);
+    height: 100px;
+    backdrop-filter: blur(12px);
+    background: #FFFFFF14;
+    border-radius: 16px;    
+    padding: 24px;
+    display: flex;
+    gap: 12px;
+    &__icon{
+        width: 52px;
+        height: 52px;
+        background-color: #FFC20029;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__content{
+        h1{
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin-top: 4px;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .advantages{
+        &__wrap{
+            flex-direction: column;
+            padding: 52px 16px;
+            gap: 24px;
+            height: auto;
+            &__text, &__list{
+                width: 100%;
+            }
+        }
+    }
+    .advantage-card{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1200px){
+    .advantages{
+        &__wrap{
+            padding: 52px 32px;
+        }
+    }
+}

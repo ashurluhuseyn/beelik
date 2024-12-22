@@ -1,0 +1,118 @@
+.student-apply{
+    background-image: url(http://localhost:3000/static/media/join-bg.34288235e75011e6a5a3.png);
+    background-position: center;
+    background-size: cover;
+    background-color: #8AC9F0;
+    height: 100vh;
+    position: relative;
+    .logo{
+        position: absolute;
+        left: 12.5%;
+        top: 20px;
+        img{
+            filter: brightness(0) invert(1);
+        }
+    }
+    &__wrap{
+        width: 75%;
+        height: 470px;
+        position: absolute;
+        top: 50%;
+        left: 12.5%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        &__form{
+            width: 34%;
+            .apply-form-title{
+                height: 104px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                h1{
+                    font-size: 40px;
+                    font-weight: 600;
+                    color: #003A5E;
+                }
+                p{
+                    font-size: 16px;
+                    font-weight: 300;
+                    color: #003A5E;
+                }
+            }
+            form{
+                margin-top: 38px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                .input-row{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 10px;
+                }
+                .apply-form-input{
+                    input, select{
+                        width: 100%;
+                        background-color: #fff;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        font-weight: 300;
+                        color: #989898;
+                        padding: 12px 16px;
+                        height: 48px;
+                    }
+                    textarea{
+                        padding: 12px 16px;
+                    }
+                    button{
+                        font-size: 16px;
+                        font-weight: 300;
+                        padding: 12px 24px;
+                        width: 100%;
+                        height: 48px;
+                        background-color: #008ADF;
+                        border-radius: 8px;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 30px;
+                        img{
+                            filter: brightness(0) invert(1);
+                            margin-left: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .student-apply__wrap__img{
+        display: none;
+    }
+    .logo{
+        left: 0 !important;
+        padding-left: 12px;
+    }
+    .student-apply__wrap{
+        width: 100%;
+        left: 0;
+        padding: 0 12px;
+        .student-apply__wrap__form{
+            margin-top: 32px;
+            width: 100%;
+            .apply-form-title{
+                height: auto;
+                gap: 10px;
+                h1{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
