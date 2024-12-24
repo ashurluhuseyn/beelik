@@ -127,19 +127,14 @@ const getCorHomeDataById = async (req, res) => {
 const updateHomeData = async (req, res) => {
     try {
       const { id } = req.params;
-      const { title, description } = req.body;
-      const image = req.file ? req.file.filename : null;
+      const { title, description, image } = req.body;
   
       const data = await Home.findByPk(id);
-  
-      if (!data) {
-        return res.status(404).json({ message: 'Data not found' });
-      }
   
       await data.update({
         title: title !== undefined ? title : data.title,
         description: description !== undefined ? description : data.description,
-        image: image !== null ? image : data.image,
+        image: image !== undefined ? image : data.image,
       });
   
       res.status(200).json({ message: 'Data updated successfully', data });
