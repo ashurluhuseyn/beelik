@@ -60,7 +60,7 @@ const Educational = () => {
        <WhyUs data={data.whyData}/>
        <div className="partners">
         <div className="partners__top">
-          
+          <h1>Partnorlarımız</h1>
           <p>Explore our diverse range of courses designed to enhance your skills and knowledge. Whether you're interested in technology.</p>
         </div>
         <div className="partners__list">
