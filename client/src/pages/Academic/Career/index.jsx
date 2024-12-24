@@ -120,7 +120,7 @@ const VacancyDetails = () => {
                     </div>
                     <div className="vacancy__wrap__details__desc">
                         <h2>Təsvir</h2>
-                        <p>{data.vacancyData.description}</p>
+                        <div dangerouslySetInnerHTML={{ __html: data.vacancyData.description }} />
                     </div>
                     <div className="vacancy__wrap__details__reqs">
                         <h2>Tələblər</h2>
