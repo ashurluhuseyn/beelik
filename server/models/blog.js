@@ -21,6 +21,11 @@ const Blog = sequelize.define('Blog', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  slug: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
   createDate: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,

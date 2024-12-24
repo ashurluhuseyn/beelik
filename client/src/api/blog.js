@@ -47,9 +47,9 @@ export const getBlogById = async (id) => {
   }
 };
 
-export const getBlogDetails = async (id) => {
+export const getBlogDetails = async (slug) => {
   try {
-    const response = await axiosInstance.get(`/blog/${id}/details`);
+    const response = await axiosInstance.get(`/blog/${slug}/details`);
     return response.data;
   } catch (error) {
     console.error("Error fetching blog by id:", error);

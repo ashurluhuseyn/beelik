@@ -39,8 +39,43 @@ const Educational = () => {
   return (
     <div className="educational">
         <Helmet>
-         <title>Ana səhifə</title>
-       </Helmet>
+        <title>Ana səhifə - Beelik</title>
+        <meta 
+          name="description" 
+          content="Beelik platformasında tədris sahələrinə baxın, partnyorlarımızı kəşf edin və sizə uyğun kurslara yazılın."
+        />
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Beelik Ana Səhifə",
+            "description": "Beelik platformasında müxtəlif tədris sahələri, partnyorlar və faydalı məlumatlar mövcuddur.",
+            "url": "https://beelik.az",
+            "about": {
+              "@type": "EducationalOrganization",
+              "name": "Beelik",
+              "url": "https://beelik.az",
+              "description": "Beelik platforması fərqli sahələr üzrə tədris imkanları təqdim edir."
+            },
+            "educationalCourse": data.coursesData.map(course => ({
+              "@type": "Course",
+              "name": course.title,
+              "description": course.description,
+              "provider": {
+                "@type": "Organization",
+                "name": "Beelik",
+                "url": "https://beelik.az"
+              }
+            })),
+            "sponsor": data.partnerData.map(partner => ({
+              "@type": "Organization",
+              "name": partner.name,
+              "url": partner.link
+            }))
+          })}
+        </script>
+      </Helmet>
        <Banner data={data.homeData}/>
        <div className="fields-area">
         <div className="fields-area__top">
@@ -60,7 +95,7 @@ const Educational = () => {
        <WhyUs data={data.whyData}/>
        <div className="partners">
         <div className="partners__top">
-          <h1>Partnorlarımız</h1>
+          <h1>Partnyorlarımız</h1>
           <p>Explore our diverse range of courses designed to enhance your skills and knowledge. Whether you're interested in technology.</p>
         </div>
         <div className="partners__list">

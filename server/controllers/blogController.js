@@ -3,16 +3,18 @@ const path = require('path');
 const Blog = require('../models/blog');
 const Category = require('../models/category');
 const { Op } = require('sequelize');
+const { slugify } = require('../helpers/slugify');
 
 const createBlog = async (req, res) => {
   try {
     const { title, description, categoryID, readTime } = req.body;
     const image = req.file ? req.file.filename : null;
-
+    const slug = slugify(title);
     const newBlog = await Blog.create({
       title,
       description,
       image, 
+      slug,
       categoryID,
       readTime
     });
@@ -75,10 +77,10 @@ const getBlogById = async (req, res) => {
 
 const getBlogDetails = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { slug } = req.params;
 
     const blog = await Blog.findOne({
-      where: { id },
+      where: { slug },
       include: {
         model: Category,
         as: 'category',
@@ -90,9 +92,9 @@ const getBlogDetails = async (req, res) => {
     const relatedBlogs = await Blog.findAll({
       where: {
         categoryID: blog.category.id,
-        id: { [Op.ne]: id },
+        slug: { [Op.ne]: slug },
       },
-      attributes: ['id', 'title', 'image', 'createDate', 'description'],
+      attributes: ['id', 'title', 'image', 'createDate', 'description', 'slug'],
       include: {
         model: Category,
         as: 'category',
@@ -105,7 +107,7 @@ const getBlogDetails = async (req, res) => {
       relatedBlogs,
     });
   } catch (error) {
-    console.error(error);
+    console.error('Error retrieving blog details:', error);
     res.status(500).json({ message: 'Error retrieving blog details', error });
   }
 };
@@ -153,6 +155,7 @@ const updateBlog = async (req, res) => {
 
     const updatedData = {
       title: title || blogToUpdate.title,
+      slug: title ? slugify(title) : blogToUpdate.slug, 
       description: description || blogToUpdate.description,
       image: image || blogToUpdate.image,
       categoryID: categoryID || blogToUpdate.categoryID,
@@ -160,26 +163,24 @@ const updateBlog = async (req, res) => {
       updateDate: new Date()
     };
 
-    console.log(updatedData);
-    
-    const updatedBlog = await Blog.update(updatedData, { where: { id } });
+    const [updated] = await Blog.update(updatedData, { where: { id } });
 
-    const blog = await Blog.findOne({
-      where: { id },
-      include: {
-        model: Category,
-        as: 'category',
-        attributes: ['title'],
-      },
-    });
+    if (updated) {
+      const blog = await Blog.findOne({
+        where: { id },
+        include: {
+          model: Category,
+          as: 'category',
+          attributes: ['title'],
+        },
+      });
 
-    if (updatedBlog[0] === 1) {  // updatedBlog array-dən istifadə edirik
       return res.status(200).json({ message: 'Blog updated successfully', data: blog });
     } else {
-      return res.status(400).json({ message: 'Blog update failed, no changes made' });
+      return res.status(400).json({ message: 'No changes were made to the blog.' });
     }
   } catch (error) {
-    console.error(error);
+    console.error('Error updating blog:', error);
     res.status(500).json({ message: 'Error updating blog', error });
   }
 };

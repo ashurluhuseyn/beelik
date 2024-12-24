@@ -52,7 +52,7 @@ const Header = () => {
                     {isDropdownOpen && (
                       <div className="dropdown-menu">
                         <Link to="/events">Tədbirlər</Link>
-                        <Link to="/blogs">Bloqlar</Link>
+                        <Link to="/bloqlar">Bloqlar</Link>
                         <Link to="/alumni">Məzunlarımız</Link>
                       </div>
                     )}

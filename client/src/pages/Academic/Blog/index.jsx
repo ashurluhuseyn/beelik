@@ -67,12 +67,12 @@ const Blogs = () => {
           "@type": "Blog",
           "name": "Beelik Bloqlar",
           "description": "Beelik platformasında müxtəlif mövzular haqqında ən son bloqları oxuyun.",
-          "url": "https://beelik.com/blogs",
+          "url": "https://beelik.az/bloqlar",
           "blogPost": blogs.map(blog => ({
             "@type": "BlogPosting",
             "headline": blog.title,
             "description": blog.description,
-            "url": `https://beelik.com/blogs/${blog.id}`,
+            "url": `https://beelik.az/bloqlar/${blog.slug}`,
             "datePublished": blog.createDate,
             "author": {
               "@type": "Person",

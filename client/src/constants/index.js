@@ -8,7 +8,7 @@ export const menuItems = [
       title: 'Akademiya',
       subItems: [
         { title: 'Tədbirlər', path: '/events' },
-        { title: 'Blog', path: '/blogs' },
+        { title: 'Bloqlar', path: '/bloqlar' },
         { title: 'Məzunlar', path: '/alumni' },
       ],
     },

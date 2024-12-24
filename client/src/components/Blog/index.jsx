@@ -25,7 +25,7 @@ const BlogCard = ({ data }) => {
           })}
         </script>
       </Helmet>
-      <Link to={`/blogs/${data.id}`}>
+      <Link to={`/bloqlar/${data.slug}`}>
         <div className="blog-card__content">
           <div className="blog-card__content__img">
             <span>{data.category.title}</span>

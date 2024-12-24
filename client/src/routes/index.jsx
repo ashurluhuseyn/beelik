@@ -22,10 +22,10 @@ export const ROUTES = {
         },
         BLOGS: {
           MAIN: {
-            PATH: '/blogs'
+            PATH: '/bloqlar'
           },
           DETAILS: {
-            PATH: '/blogs/:id'
+            PATH: '/bloqlar/:slug'
           }
         },
         EVENTS: {

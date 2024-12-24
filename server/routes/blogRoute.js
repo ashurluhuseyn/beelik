@@ -32,7 +32,7 @@ router.post('/', authenticate, authorize(['superAdmin', 'admin']), upload.single
 router.get('/', getAllBlogs);
 router.get('/category/:categoryID', getBlogsByCategory);
 router.get('/:id', getBlogById);
-router.get('/:id/details', getBlogDetails);
+router.get('/:slug/details', getBlogDetails);
 router.patch('/:id', authenticate, authorize(['superAdmin', 'admin']),  updateBlog); 
 router.delete('/:id', authenticate, authorize(['superAdmin']), deleteBlog);
 
