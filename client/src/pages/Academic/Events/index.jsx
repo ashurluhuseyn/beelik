@@ -5,6 +5,8 @@ import EventCard from '../../../components/Event'
 import './events.scss'
 import { getEvents } from '../../../api/event'
 import AlertMessage from '../../../components/Alert'
+import Loader from '../../../components/Loader';
+
 
 const Events = () => {
   const [data, setData] = useState(null); 
@@ -27,12 +29,9 @@ const Events = () => {
   }, []);
 
   if (loading) {
-    return <p>Yüklenir...</p>;
+    return <Loader />
   }
 
-  if (!data) {
-    return <AlertMessage text='Göstəriləcək məlumat yoxdur'/>;
-  }
   return (
     <div className='events-page'>
         <Helmet>
@@ -44,11 +43,11 @@ const Events = () => {
             </div>
             <div className="events__list">
                 {
-                    data && data.length > 0 ? data.map(item => {
+                    data && data.length > 0 && data.map(item => {
                         return(
                             <EventCard key={item.id} data={item}/>
                         )
-                    }) : <AlertMessage text='Hal-hazırda tədbir yoxdur'/>
+                    })
                 }
             </div>
             <div className="events__subscribe">
