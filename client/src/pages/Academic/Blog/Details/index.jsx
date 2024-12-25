@@ -9,6 +9,7 @@ import BlogCard from "../../../../components/Blog";
 import { getBlogDetails } from "../../../../api/blog";
 import AlertMessage from "../../../../components/Alert";
 import { getFormattedDate } from "../../../../utils/date";
+import Loader from '../../../../components/Loader';
 
 const BlogDetails = () => {
   const { slug } = useParams()
@@ -32,7 +33,7 @@ const BlogDetails = () => {
   }, []);
 
   if (loading) {
-    return <p>Yüklenir...</p>;
+    return <Loader />
   }
 
   if (!data) {
