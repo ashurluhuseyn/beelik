@@ -16,7 +16,7 @@ export const menuItems = [
       key: 'about',
       title: 'Haqqımızda',
       subItems: [
-        { title: 'Bizimlə tanış olun', path: '/about' },
+        { title: 'Bizimlə tanış olun', path: '/haqqimizda' },
       ],
     }
   ];
