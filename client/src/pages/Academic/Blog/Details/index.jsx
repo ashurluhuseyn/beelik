@@ -107,7 +107,7 @@ const BlogDetails = () => {
                 </ul>
             </div>
             <div className="details__wrap__image">
-                <img src={`${process.env.REACT_APP_IMAGE_URL}blogs/${data.blog.image}`} alt="" />
+                <img src={`${process.env.REACT_APP_IMAGE_URL}blogs/${data.blog.image}`} alt={data.blog.title} oading="lazy"/>
             </div>
             <div className="details__wrap__content">
               <div dangerouslySetInnerHTML={{ __html: data.blog.description }} />
