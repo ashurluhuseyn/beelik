@@ -61,6 +61,7 @@ const Blogs = () => {
   return (
     <div className="blogs-page">
       <Helmet>
+        <title>Bloq - Beelik</title>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
