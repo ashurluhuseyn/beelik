@@ -4,7 +4,7 @@ export const ROUTES = {
           PATH: '/'
         },
         ABOUT: {
-          PATH: '/about'
+          PATH: '/haqqimizda'
         },
         CONTACT: {
           PATH: '/contact'
