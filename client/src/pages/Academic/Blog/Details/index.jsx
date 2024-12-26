@@ -110,7 +110,7 @@ const BlogDetails = () => {
                 <img src={`${process.env.REACT_APP_IMAGE_URL}blogs/${data.blog.image}`} alt="" />
             </div>
             <div className="details__wrap__content">
-              <p>{data.blog.description}</p>
+              <div dangerouslySetInnerHTML={{ __html: data.blog.description }} />
             </div>
         </div>
         {
